@@ -1,9 +1,9 @@
 import networkx as nx
 from community import community_louvain
 
-def calculate_shortest_path(graph, source_node, target_node, weight):
-    remove_negative_cycles(graph)
-    return nx.johnson(graph, weight=weight)[source_node][target_node]
+# def calculate_shortest_path(graph, source_node, target_node, weight):
+#     remove_negative_cycles(graph)
+#     return nx.johnson(graph, weight=weight)[source_node][target_node]
 
 def calculate_betweenness_centrality(graph, weight):
     return nx.betweenness_centrality(graph, weight=weight)
@@ -14,8 +14,9 @@ def calculate_pagerank(graph, weight):
 def calculate_clustering_coefficient(graph):
     return nx.clustering(graph)
 
-def calculate_eigenvector_centrality(graph, weight):
-    return nx.eigenvector_centrality(graph, weight=weight)
+# def calculate_eigenvector_centrality(graph, weight=None, max_iter=500):
+#     return nx.eigenvector_centrality(graph, weight=weight, max_iter=max_iter)
+
 
 def detect_communities(graph, weight):
     return community_louvain.best_partition(graph, weight=weight)

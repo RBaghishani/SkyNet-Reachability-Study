@@ -9,11 +9,17 @@ def load_data():
     reachability_columns = ['FromNodeId', 'ToNodeId', 'Weight']
     df_reachability = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': int, 'ToNodeId': int, 'Weight': float})
 
-    # Split the 'FromNodeId' column based on space and keep the first part
-    # df_reachability['FromNodeId'] = df_reachability['FromNodeId'].str.split().str[0]
+    # # Load reachability.txt
+    # reachability_path = 'data/reachability-CANADA.csv'
+    # df_canada = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
 
-    # Convert the 'FromNodeId' column to integer
-    # df_reachability['FromNodeId'] = df_reachability['FromNodeId'].astype(int)
+    # # Load reachability.txt
+    # reachability_path = 'data/reachability-USA.csv'
+    # df_united_states = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
+    
+    # # Load reachability.txt
+    # reachability_path = 'data/reachability-OTHERS.csv'
+    # df_other = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
 
     # Load reachability-meta.csv
     meta_path = 'data/reachability-meta.csv'
@@ -55,6 +61,9 @@ def load_data():
     df_canada = pd.DataFrame(columns=['FromNodeId', 'ToNodeId', 'Weight'], data=reachability_canada)
     df_united_states = pd.DataFrame(columns=['FromNodeId', 'ToNodeId', 'Weight'], data=reachability_us)
     df_other = pd.DataFrame(columns=['FromNodeId', 'ToNodeId', 'Weight'], data= reachability_other)
+    df_canada.to_csv('data/reachability-CANADA.csv', index=False)
+    df_united_states.to_csv('data/reachability-USA.csv', index=False)
+    df_other.to_csv('data/reachability-OTHERS.csv', index=False)
 
     return df_reachability, df_meta, df_canada, df_united_states, df_other
 

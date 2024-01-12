@@ -15,30 +15,22 @@ G_UNITED_STATES = create_graph(df_united_states)
 G_OTHER = create_graph(df_other)
 
 #  Perform analysis
-calculations(G,"all")
-
-# Visualize results
-visualize_graph(G)
+calculations(G,"ALL")
 
 ################################
 ##CANADA
 ################################
 
 # Perform analysis
-calculations(G,"CANADA")
+calculations(G_CANADA,"CANADA")
 
-# Visualize results
-visualize_graph(G_CANADA)
 
 ################################
 ##UNITED_STATES
 ################################
 
 # Perform analysis
-calculations(G,"USA")
-
-# Visualize results
-visualize_graph(G_UNITED_STATES)
+calculations(G_UNITED_STATES,"USA")
 
 #################################
 ##OTHERS
@@ -47,4 +39,7 @@ visualize_graph(G_UNITED_STATES)
 calculations(G_OTHER,"OTHERS")
 
 # Visualize results
+visualize_graph(G)
+visualize_graph(G_CANADA)
+visualize_graph(G_UNITED_STATES)
 visualize_graph(G_OTHER)

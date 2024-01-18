@@ -1,28 +1,45 @@
 from src.data_loading import load_data, create_graph
-from src.graph_analysis import calculate_shortest_paths, calculate_betweenness_centrality, detect_communities
+from src.graph_analysis import calculations
 from src.visualization import visualize_graph
 import time
+import pandas as pd
 
 
 # Load data
-df_reachability, df_meta = load_data()
+df_reachability, df_meta, df_canada, df_united_states, df_other = load_data()
 
 # Create graph
 G = create_graph(df_reachability)
+G_CANADA = create_graph(df_canada)
+G_UNITED_STATES = create_graph(df_united_states)
+G_OTHER = create_graph(df_other)
 
-# Visualize results
-# visualize_graph(G)
+#  Perform analysis
+calculations(G,"ALL")
+
+################################
+##CANADA
+################################
 
 # Perform analysis
-shortest_paths = calculate_shortest_paths(G, 'NodeA', 'Weight')
-print("Function calculate_shortest_paths() ends at:", time.ctime())
+calculations(G_CANADA,"CANADA")
 
-betweenness_centrality = calculate_betweenness_centrality(G, 'Weight')
-print("Function calculate_betweenness_centrality() ends at:", time.ctime())
 
-communities = detect_communities(G, 'Weight')
-print("Function detect_communities() ends at:", time.ctime())
+################################
+##UNITED_STATES
+################################
 
+# Perform analysis
+calculations(G_UNITED_STATES,"USA")
+
+#################################
+##OTHERS
+################################
+# Perform analysis
+calculations(G_OTHER,"OTHERS")
 
 # Visualize results
 visualize_graph(G)
+visualize_graph(G_CANADA)
+visualize_graph(G_UNITED_STATES)
+visualize_graph(G_OTHER)

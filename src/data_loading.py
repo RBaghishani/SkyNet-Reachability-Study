@@ -9,18 +9,63 @@ def load_data():
     reachability_columns = ['FromNodeId', 'ToNodeId', 'Weight']
     df_reachability = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': int, 'ToNodeId': int, 'Weight': float})
 
-    # Split the 'FromNodeId' column based on space and keep the first part
-    # df_reachability['FromNodeId'] = df_reachability['FromNodeId'].str.split().str[0]
+    # # Load reachability.txt
+    # reachability_path = 'data/reachability-CANADA.csv'
+    # df_canada = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
 
-    # Convert the 'FromNodeId' column to integer
-    # df_reachability['FromNodeId'] = df_reachability['FromNodeId'].astype(int)
+    # # Load reachability.txt
+    # reachability_path = 'data/reachability-USA.csv'
+    # df_united_states = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
+    
+    # # Load reachability.txt
+    # reachability_path = 'data/reachability-OTHERS.csv'
+    # df_other = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
 
     # Load reachability-meta.csv
     meta_path = 'data/reachability-meta.csv'
-    meta_columns = ['node_id', 'name', 'metro_pop', 'latitude', 'longitude']
+    meta_columns = ['node_id', 'name', 'metro_pop', 'latitude', 'longitude', 'country']
     df_meta = pd.read_csv(meta_path)
 
-    return df_reachability, df_meta
+     # Create empty lists to store the reachability values
+    reachability_us = []
+    reachability_canada = []
+    reachability_other = []
+    
+    # Iterate over each row in the graph data
+    for index, row in df_reachability.iterrows():
+        from_node_id = int(row['FromNodeId'])
+        to_node_id = int(row['ToNodeId'])
+
+        # Get the country information for the nodes from the df_meta DataFrame
+        from_node_country = df_meta.loc[df_meta['node_id'] == from_node_id, 'country'].values
+        to_node_country = df_meta.loc[df_meta['node_id'] == to_node_id, 'country'].values
+
+        # Check if the nodes have the same country
+        if len(from_node_country) > 0 and len(to_node_country) > 0 and from_node_country == to_node_country:
+            # Add the reachability to the specified country
+            country = from_node_country[0]  # Assuming both nodes have the same country
+            # Calculate reachability for the FromNodeId and ToNodeId pair
+            if country == 'United States':
+                reachability_us.append(row)
+            elif country == 'Canada':
+                reachability_canada.append(row)
+            else:
+                reachability_other.append(row)
+
+        else:
+            # Add the reachability to the 'Other' country
+            reachability_other.append(row)
+
+
+    # Create new dataframe for Canada and United States
+    df_canada = pd.DataFrame(columns=['FromNodeId', 'ToNodeId', 'Weight'], data=reachability_canada)
+    df_united_states = pd.DataFrame(columns=['FromNodeId', 'ToNodeId', 'Weight'], data=reachability_us)
+    df_other = pd.DataFrame(columns=['FromNodeId', 'ToNodeId', 'Weight'], data= reachability_other)
+    df_canada.to_csv('data/reachability-CANADA.csv', index=False)
+    df_united_states.to_csv('data/reachability-USA.csv', index=False)
+    df_other.to_csv('data/reachability-OTHERS.csv', index=False)
+
+    return df_reachability, df_meta, df_canada, df_united_states, df_other
 
 def preprocess_data(df_reachability, df_meta):
     # Merge the dataframes

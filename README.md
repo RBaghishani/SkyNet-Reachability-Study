@@ -2,8 +2,6 @@
 
 # Learning from Networks Project
 
-This project was developed as part of the course "Learning from Networks" for the Masters of Computer Engineering program. The goal of this project is to analyze network data and perform different algorithms on the data.
-
 This project was developed as part of the course "Learning from Networks" for the Masters of Computer Engineering program. The goal of this project is to analyze a transportation reachability network for cities in the United States and Canada and perform different graph related algorithms on the data.
 
 ## Dataset

@@ -1,4 +1,4 @@
-Edge_Number,Betweenness_Centrality
+node_id,Betweenness_Centrality
 6.0,0.5740664670182598
 1.0,0.12190257864468768
 7.0,0.47486285214533697

@@ -1,4 +1,4 @@
-Edge_Number,Degree_Centrality
+node_id,Degree_Centrality
 27,1.6549450549450548
 0,0.15384615384615385
 57,1.4703296703296704

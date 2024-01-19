@@ -1,6 +1,7 @@
 from src.data_loading import load_data, create_graph
 from src.graph_analysis import calculations
 from src.visualization import visualize_graph
+from src.statistics import visualize_metric_relationships_across_countries
 import time
 import pandas as pd
 
@@ -15,14 +16,14 @@ G_UNITED_STATES = create_graph(df_united_states)
 G_OTHER = create_graph(df_other)
 
 #  Perform analysis
-calculations(G,"ALL")
+merged_df_ALL=calculations(G,"ALL",df_meta)
 
 ################################
 ##CANADA
 ################################
 
 # Perform analysis
-calculations(G_CANADA,"CANADA")
+merged_df_CANADA=calculations(G_CANADA,"CANADA",df_meta)
 
 
 ################################
@@ -30,16 +31,24 @@ calculations(G_CANADA,"CANADA")
 ################################
 
 # Perform analysis
-calculations(G_UNITED_STATES,"USA")
+merged_df_UNITED_STATES=calculations(G_UNITED_STATES,"USA",df_meta)
 
 #################################
 ##OTHERS
 ################################
 # Perform analysis
-calculations(G_OTHER,"OTHERS")
+merged_df_OTHER=calculations(G_OTHER,"OTHERS",df_meta)
 
 # Visualize results
-visualize_graph(G)
-visualize_graph(G_CANADA)
-visualize_graph(G_UNITED_STATES)
-visualize_graph(G_OTHER)
+visualize_graph(G, "ALL")
+visualize_graph(G_CANADA, "CANADA")
+visualize_graph(G_UNITED_STATES, "USA")
+visualize_graph(G_OTHER, "OTHERS")
+
+
+##############Statistics################
+
+visualize_metric_relationships_across_countries(merged_df_ALL, "ALL")
+visualize_metric_relationships_across_countries(merged_df_CANADA, "CANADA")
+visualize_metric_relationships_across_countries(merged_df_UNITED_STATES, "USA")
+visualize_metric_relationships_across_countries(merged_df_OTHER, "OTHERS")

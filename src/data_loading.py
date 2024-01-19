@@ -9,18 +9,6 @@ def load_data():
     reachability_columns = ['FromNodeId', 'ToNodeId', 'Weight']
     df_reachability = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': int, 'ToNodeId': int, 'Weight': float})
 
-    # # Load reachability.txt
-    # reachability_path = 'data/reachability-CANADA.csv'
-    # df_canada = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
-
-    # # Load reachability.txt
-    # reachability_path = 'data/reachability-USA.csv'
-    # df_united_states = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
-    
-    # # Load reachability.txt
-    # reachability_path = 'data/reachability-OTHERS.csv'
-    # df_other = pd.read_csv(reachability_path, delimiter=' ', comment='#', header=None, names=reachability_columns, dtype={'FromNodeId': float, 'ToNodeId': float, 'Weight': float})
-
     # Load reachability-meta.csv
     meta_path = 'data/reachability-meta.csv'
     meta_columns = ['node_id', 'name', 'metro_pop', 'latitude', 'longitude', 'country']

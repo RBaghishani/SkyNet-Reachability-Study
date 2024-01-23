@@ -1,7 +1,7 @@
 from src.data_loading import load_data, create_graph
 from src.graph_analysis import calculations
 from src.visualization import visualize_graph
-from src.statistics import visualize_metric_relationships_across_countries
+from src.statistics import visualize_metric_relationships_across_countries,calculate_correlation
 import time
 import pandas as pd
 
@@ -52,3 +52,10 @@ visualize_metric_relationships_across_countries(merged_df_ALL, "ALL")
 visualize_metric_relationships_across_countries(merged_df_CANADA, "CANADA")
 visualize_metric_relationships_across_countries(merged_df_UNITED_STATES, "USA")
 visualize_metric_relationships_across_countries(merged_df_OTHER, "OTHERS")
+
+
+
+##############corrolation################
+# merged_df_path = 'output/ALL/merged_df_ALL.csv'
+# merged_df_ALL = pd.read_csv(merged_df_path)
+calculate_correlation(merged_df_ALL, "ALL")

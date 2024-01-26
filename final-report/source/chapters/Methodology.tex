@@ -1,0 +1,34 @@
+
+\section{Methodology}
+
+
+\subsection{Problem Definition}
+
+The primary objective of this project is to conduct a comparative analysis of the reachability networks of cities in the United States and Canada. To achieve this, we aim to analyze the network structures, node characteristics, and network connectivity. Our analysis will involve the implementation of various graph algorithms and statistical tests to extract meaningful insights from the dataset.
+
+\subsection{Data Analysis}
+
+To begin the analysis, we preprocess the transportation reachability network dataset. This involves cleaning and preparing the dataset for further analysis. We handle any missing or erroneous data, ensuring the accuracy and integrity of the dataset. Additionally, we transform the dataset into a suitable graph representation to facilitate network analysis.
+
+\subsection{Algorithms Used}
+
+We employ several graph algorithms to calculate various network metrics and properties. These algorithms include:
+
+\begin{itemize}
+  \item \textbf{Betweenness Centrality:} We use the networkx library's \texttt{betweenness\_centrality} function to calculate the betweenness centrality of nodes in the reachability network. This metric helps us identify the nodes that act as critical connectors within the network.
+
+  \item \textbf{PageRank:} We utilize the \texttt{pagerank} function from networkx to calculate the PageRank scores of nodes. This algorithm provides insights into the relative importance and influence of each node in the network.
+
+  \item \textbf{Clustering Coefficient:} We use the \texttt{clustering} function from networkx to calculate the clustering coefficient of nodes. This metric helps us understand the level of local connectivity and clustering within the network.
+
+  \item \textbf{Degree Centrality:} We employ the \texttt{degree\_centrality} function from networkx to calculate the degree centrality of nodes. This metric provides information about the number of connections each node has, indicating its importance within the network.
+
+  \item \textbf{Average Neighbor Degree:} We use the \texttt{average\_neighbor\_degree} function from networkx to calculate the average neighbor degree of nodes. This metric helps us understand the level of connectivity between a node and its neighbors.
+\end{itemize}
+
+
+
+
+\subsection{Intended Experiments}
+
+We intend to perform a series of experiments to analyze the reachability networks of cities in the United States and Canada. These experiments will involve calculating various network metrics, comparing the network properties, and evaluating the impact of travel time thresholds on network connectivity. Additionally, we will conduct statistical tests, if feasible, to validate our findings and identify significant differences between the two networks.

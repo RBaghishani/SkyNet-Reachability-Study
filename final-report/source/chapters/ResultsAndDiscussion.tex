@@ -4,7 +4,93 @@
 
 In the reachability network analysis, we calculated essential network metrics for the United States and Canada reachability networks. These metrics included betweenness centrality, PageRank, clustering coefficient, degree centrality, and average neighbor degree. The results revealed important insights into the structure and properties of the reachability networks in both countries.
 
+
+In this section, we present and discuss the results obtained from the analysis of the graph reachability features of airports in the USA and Canada both in the same graph.
+
+\begin{itemize}
+    \item{Betweenness Centrality}
+
+    First, we examine the betweenness centrality of the airports, which measures the importance of an airport in connecting other airports in the network. Among the studied airports, the airport with the highest betweenness centrality value is Baltimore, MD, with a value of 0.83. This suggests that Baltimore serves as a critical hub for connecting various airports in the region.
+
+
+    \item{Pagerank Values}
+    
+    Next, we analyze the pagerank values of the airports, which indicate the importance of an airport based on the connectivity of other important airports in the network. The airport with the highest pagerank value is Los Angeles, CA, with a value of 0.0062, indicating its significant role in the network's connectivity.
+    
+    
+    \item{Clustering Coefficient}
+    
+    The clustering coefficient represents the extent to which airports tend to form clusters or tightly connected groups. We find that the airport with the highest clustering coefficient is Aberdeen, SD, with a value of 0.96. This suggests that Aberdeen, SD, has a high density of connections between its neighboring airports.
+    
+    
+    \item {Degree Centrality}
+    
+    Degree centrality measures the number of connections (degree) an airport has with other airports. Among all the airports, New York, NY, has the highest degree centrality, indicating its extensive connectivity with other airports in the network.
+    
+    
+    \item {Average Neighbor Degree}
+    
+    The average neighbor degree reflects the average degree of an airport's neighboring airports. We observe that Thunder Bay, ON, has the highest average neighbor degree, indicating that its neighbors have a relatively higher degree, suggesting a dense and well-connected network around this airport.
+\end{itemize}
+
+
 \subsection{Comparison of US and Canada Networks}
+
+\subsubsection{Network Structures}
+
+The network structures characterized by distinct sizes, with the Canadian network comprising 65 nodes and the USA network featuring a more extensive set of 390 nodes. This discrepancy in node count suggests varying degrees of complexity and connectivity within each country's transportation system. The Canadian network, with its 65 nodes, may exhibit a more centralized and focused structure, potentially indicating a more streamlined and interconnected transportation infrastructure. On the other hand, the USA network, boasting 390 nodes, likely portrays a more intricate and decentralized network, reflective of the vast geographic expanse and diverse travel routes present in the United States. The differing node counts provide a preliminary insight into the potential disparities in the scale and intricacy of transportation reachability between these two North American nations, laying the groundwork for more in-depth analyses of network properties and implications for travel accessibility.
+
+Figure \ref{fig:both} shows the network for both countries, Figure \ref{fig:USA} illustrates the exclusive network for the USA and Figure \ref{fig:CANADA} illustrates it for the Canada, and Figure \ref{fig:exclusive} provides an overview of the network containing just the edges which connects two networks of these two countries.
+
+%BABA
+\subsubsection{Network Metrics Comparison}\label{metrics}
+The correlation heatmap, Figure(\ref{fig:heatmap}), suggests that the United States reachability network is more interconnected, reliant on a few key hubs, and centralized than the Canadian reachability network. This is likely due to a number of factors, including the size of the United States, the density of its transportation network, and the concentration of businesses and organizations in major cities.
+The table below summarizes the key findings from the heatmap in appendix.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccc}
+         NETWORK METRIX& 
+ CANADA& USA\\
+         Betweenness Centrality&  Correlation = 0.82& Correlation = 0.67\\
+         PageRank Values&  Correlation = 0.74& Correlation = 0.94\\
+         Clustering Coefficient&  Correlation = 0.75& Correlation = 0.62\\
+         Degree Centrality&  Correlation = 0.92& Correlation = 0.88\\
+         Average Neighbor Degree&  Correlation = 0.87& Correlation = 0.79\\
+         Metro Pop&  Correlation = 0.72& Correlation = 0.91\\
+    \end{tabular}
+    \caption{Table 1.0}
+    \label{summary of the heatmap indication}
+\end{table}
+
+\begin{itemize}
+    \item \textbf{Betweenness Centrality:} The United States reachability network has a stronger positive correlation between betweenness centrality and metro population than the Canadian reachability network. This means that in the United States, cities with larger metro populations are more likely to have nodes with high betweenness centrality. This is again likely because larger cities have more transportation routes and hubs, which can make them more important for connecting different parts of the network.
+    
+    \item {Clustering Coefficient:} The United States reachability network has a slightly lower clustering coefficient than the Canadian reachability network. This means that the United States reachability network may be more interconnected than the Canadian reachability network. This difference may be due to the fact that the United States has a more dense transportation network, which can make it easier for people and goods to travel between different parts of the country.
+
+    \item \textbf{Degree Centrality:} The United States reachability network has a slightly higher degree centrality than the Canadian reachability network. This means that the United States reachability network may be more centralized than the Canadian reachability network. This difference may be due to the fact that the United States has a more concentrated population, which can make it easier for people and goods to travel to certain cities.
+
+    \item \textbf{Average Neighbor Degree:} The United States reachability network has a slightly higher average neighbor degree than the Canadian reachability network. This means that nodes in the United States reachability network may have a higher average number of connections to other nodes in the network. This difference may be due to the fact that the United States has a more dense transportation network.
+\end{itemize}
+
+
+\paragraph{Metropolitan Population and Page Rank Values}
+
+\begin{itemize}
+    \item \textbf{Canada}: The scatter plot we have achieved shows a positive correlation between PageRank values and metro population in Canada. This means that, in general, nodes with larger metro populations also have higher PageRank values. This is likely because nodes with larger metro populations are more likely to be visited by a greater number of users, which can increase their PageRank values. Figure(\ref{fig:metro-page-canada}) have the graphical representation.
+
+    \item \textbf{USA}: As the same with Canada, but there is a more strong positive correlation between PageRank values and metro population in the United States. This means that in general, cities with larger metro populations tend to have higher PageRank values in the United States than they do in Canada. The line of best fit indicates a near-perfect correlation, suggesting that there is a more strong relationship between these two variables. See Figure(\ref{fig:metro-page-usa})
+
+    \item \textbf{Both Countries}: Figure(\ref{fig:metro-page-both}) shows a scatter plot of PageRank values versus metro population. This visualization allows the reader to see how the PageRank values of different nodes correlate with their metro populations.
+\end{itemize}
+
+
+
+%Baba
+
+
+
+\subsection{General Findings}
 
 When comparing the reachability networks of the United States and Canada, we observed some interesting differences. The degree centrality analysis highlighted nodes with the highest number of connections, indicating key transportation hubs in each country. We found that major cities such as Los Angeles, San Francisco, Las Vegas, Montreal, and Calgary had high degree centrality in their respective networks, suggesting their significance in terms of reachability.
 
@@ -12,4 +98,4 @@ Examining the betweenness centrality metric provided insights into the nodes tha
 
 We also evaluated the clustering coefficient, which measures the extent of clustering or local connectivity within the network. Higher clustering coefficients indicate that nodes tend to form tightly connected groups or communities. In both the United States and Canada reachability networks, we found higher clustering coefficients in certain regions, suggesting the presence of local transportation networks or regional hubs.
 
-Furthermore, analyzing the PageRank metric allowed us to identify nodes with high influence or importance in the reachability networks. Nodes with high PageRank scores indicated their significance in terms of their ability to reach other important nodes within the network. We found that major transportation hubs like airports and major cities had higher PageRank scores, emphasizing their centrality in terms of reachability.
+Moreover, analyzing the PageRank metric allowed us to identify nodes with high influence or importance in the reachability networks. Nodes with high PageRank scores indicated their significance in terms of their ability to reach other important nodes within the network. We found that major transportation hubs like airports and major cities had higher PageRank scores, emphasizing their centrality in terms of reachability.

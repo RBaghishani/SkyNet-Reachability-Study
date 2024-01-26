@@ -6,13 +6,36 @@
 
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
-\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+% \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[colorlinks=true, allcolors=blue,breaklinks=true,unicode=true]{hyperref}
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{etoolbox}
+\usepackage{multirow}
 
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{bibliography.bib} %Import the bibliography file
+
+% subsection 4
+
+\usepackage{amssymb,amsmath}
+% \usepackage[mathletters]{ucs}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setcounter{secnumdepth}{0}
+
+% use multiple pics
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+%referencing between files
+\usepackage{zref}
 % ------------------------------------------------------
 % DIMENSIONS OF THE PAGES
 % ------------------------------------------------------
@@ -29,7 +52,9 @@
 
 \begin{document}
 \input{titlepage.tex}
-
+\begin{abstract}
+The increasing importance of air travel has led to the development of complex transportation accessibility networks. This project aims to analyze and compare the reachability networks of cities in the United States and Canada. By studying the network structures, node characteristics, and travel time, we seek to understand the impact on network connectivity. Our analysis is based on a transportation reachability network dataset, which includes information on the population of metropolitan cities, latitude, and longitude. Through various graph algorithms and statistical tests, we aim to provide insights into the similarities and differences between the two networks.
+\end{abstract}
 \tableofcontents
 \newpage
 % ------------------------------------------------------
@@ -40,9 +65,8 @@
 % ------------------------------------------------------
 % CHAPTERS
 % ------------------------------------------------------
-\begin{abstract}
-The increasing importance of air travel has led to the development of complex transportation accessibility networks. This project aims to analyze and compare the reachability networks of cities in the United States and Canada. By studying the network structures, node characteristics, and travel time, we seek to understand the impact on network connectivity. Our analysis is based on a transportation reachability network dataset, which includes information on the population of metropolitan cities, latitude, and longitude. Through various graph algorithms and statistical tests, we aim to provide insights into the similarities and differences between the two networks.
-\end{abstract}
+
+\setcounter{page}{1}
 \input{chapters/Introduction}
 \input{chapters/Methodology}
 \input{chapters/DataPreprocessing}
@@ -50,6 +74,9 @@ The increasing importance of air travel has led to the development of complex tr
 \input{chapters/ExperimentalAnalysis}
 \input{chapters/ResultsAndDiscussion}
 \input{chapters/Conclusion}
-\input{chapters/references.tex}
+\input{chapters/references}
 \input{chapters/Appendices}
+\newpage
+\newpage
+\input{chapters/Contributions}
 \end{document}

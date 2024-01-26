@@ -23,9 +23,9 @@ def calculate_correlation(merged_data, country_name):
     correlation_matrix = merged_data[metrics].corr()
 
     # Visualize the correlation matrix as a heatmap
-    plt.figure(figsize=(10, 8))
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+    plt.figure(figsize=(17, 10))  # Increase the figure size
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", annot_kws={"fontsize": 9})  # Increase the font size of annotations
     plt.title('Correlation Between Metrics')
     fig = plt.gcf()  # Get the current figure object
-    fig.savefig(f'./output/{country_name}/relationship_correlation_heatmap_{country_name}.png')
+    fig.savefig(f'./output/{country_name}/relationship_correlation_heatmap_{country_name}.png', dpi=300)
     plt.show()
